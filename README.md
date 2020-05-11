@@ -62,13 +62,14 @@ https://wireframe.cc/pro/pp/c8c3fdea5341298
 #### MVP
 
 - Allow user to pick randomized cocktail.
-- Filter cocktail list by alcohol type and/or common ingredients.
+- Filter cocktail list by alcohol type.
 - Display cocktail image and recipe.
 - Reset search to look up more recipes.
 
 
 #### PostMVP
 
+- Filter by common ingredients. 
 - Search cocktail by name.
 - Filter by taste profile.
 - Share recipes on social media.
@@ -80,8 +81,8 @@ https://wireframe.cc/pro/pp/c8c3fdea5341298
 |---|---| ---|
 |Monday, 5/11| Project approval. Pseudocode, core HTML and CSS. | Incomplete
 |Tuesday, 5/12| API code, retrieving and filtering of information, random button functionality. | Incomplete
-|Wednesday, 5/13| Dropdown menu and checkbox functionality. Integrating dynamic drink info display. | Incomplete
-|Thursday, 5/14| Reset search functionality. Finalize CSS details and styling | Incomplete
+|Wednesday, 5/13| Dropdown menu and checkbox functionality. Integrating dynamic drink info display. Reset search functionality. | Incomplete
+|Thursday, 5/14| Finalize CSS details and styling | Incomplete
 |Friday, 5/15| Present | Incomplete
 
 
