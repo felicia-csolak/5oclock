@@ -14,7 +14,7 @@ header, body, footer {
     margin-bottom: 10px;
 }
 
-img:hover {
+#modal-btn img:hover {
   animation: shake 0.5s;
 }
 
@@ -30,6 +30,16 @@ img:hover {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.drink-display img {
+  width: 275px;
+  height: auto;
+}
+
+.drink-display {
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -113,7 +123,6 @@ h2 {
   display: none;
   position: fixed; 
   padding-top: 50px;
-  left: 0; 
   top: 0;
   width: 400px;
   height: 225px; 
@@ -137,12 +146,12 @@ h2 {
 }
 
 
-
 .close-btn {
   float: right; 
   color: lightgray; 
   font-size: 24px;  
   font-weight: bold;
+  cursor: default;
 }
 
 .close-btn:hover {

@@ -4,9 +4,9 @@ const drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 // const
   try {
     const response = await axios.get(drinkURL)
-    console.log(response)
+    // console.log(response)
     const drinkList = Object(response.data)
-    console.log(drinkList)
+    // console.log(drinkList)
     displayDrink(drinkList)
   }
   catch (error) {
@@ -22,6 +22,18 @@ function displayDrink(drink) {
   let drinkName = document.createElement('h2')
   drinkName.innerHTML = drink.drinks[0].strDrink
   display.appendChild(drinkName)
+
+  let photo = document.createElement('img');
+  photo.src = drink.drinks[0].strDrinkThumb
+  display.appendChild(photo);
+
+  let ingredients = document.createElement('li')
+  ingredients.innerHTML = drink.drinks[0].strIngredient1;
+  display.appendChild(ingredients)
+
+  let directions = document.createElement('p')
+  directions.innerHTML = drink.drinks[0].strInstructions;
+  display.appendChild(directions);
 }
 
 
