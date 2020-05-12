@@ -29,20 +29,16 @@ function displayDrink(drink) {
   display.appendChild(drinkName)
 
   for (let i = 1; i <= 15; i++) {
-  let ingredients = document.createElement('li')
+  const ingredients = document.createElement('li')
   ingredients.innerHTML = drink.drinks[0][`strIngredient${i}`];
 
-  let measurements = document.createElement('li')
+  const measurements = document.createElement('li')
   measurements.innerHTML = drink.drinks[0][`strMeasure${i}`];
 
-
-  let ingDiv = document.createElement('div')
-  let measureDiv = document.createElement('div')
-  ingDiv.appendChild(ingredients)
-  measureDiv.appendChild(measurements)
-  display.appendChild(measureDiv)
-  display.appendChild(ingDiv)
-
+  let ingMeasureDiv = document.createElement('div')
+  ingMeasureDiv.appendChild(ingredients)
+  ingMeasureDiv.appendChild(measurements)
+  display.appendChild(ingMeasureDiv)
   }
 
   let directions = document.createElement('p')

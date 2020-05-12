@@ -21,17 +21,16 @@ header, body, footer {
 }
 
 .drink-display div {
-  display: inline-flex;
-  flex-direction: column;
+  display: block;
   margin: 10px 15px 10px auto;
   overflow: auto;
 }
 
-.ingDiv div {
+.ingMeasureDiv div {
   display: block;
 }
 
-.ingDiv ul, li {
+.ingMeasureDiv ul, li {
   list-style: none;
 }
 
