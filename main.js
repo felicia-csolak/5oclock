@@ -19,17 +19,29 @@ getDrink()
 function displayDrink(drink) {
   // console.log(drink.drinks[0].strDrink)
   let display = document.querySelector('.drink-display')
-  let drinkName = document.createElement('h2')
-  drinkName.innerHTML = drink.drinks[0].strDrink
-  display.appendChild(drinkName)
 
   let photo = document.createElement('img');
   photo.src = drink.drinks[0].strDrinkThumb
   display.appendChild(photo);
 
+  let drinkName = document.createElement('h2')
+  drinkName.innerHTML = drink.drinks[0].strDrink
+  display.appendChild(drinkName)
+
   let ingredients = document.createElement('li')
   ingredients.innerHTML = drink.drinks[0].strIngredient1;
-  display.appendChild(ingredients)
+
+
+  let measurements = document.createElement('li')
+  measurements.innerHTML = drink.drinks[0].strMeasure1;
+
+  let ingDiv = document.createElement('div')
+  let measureDiv = document.createElement('div')
+  ingDiv.appendChild(ingredients)
+  measureDiv.appendChild(measurements)
+  display.appendChild(measureDiv)
+  display.appendChild(ingDiv)
+
 
   let directions = document.createElement('p')
   directions.innerHTML = drink.drinks[0].strInstructions;
@@ -51,21 +63,6 @@ function displayDrink(drink) {
 // }
 
 // drinkInfo(Gin)
-//random button
-
-
-
-
-
-
-
-
-
-
-//dynamic drink display
-
-
-
 
 
 
@@ -88,7 +85,7 @@ function button() {
     }
   }
 
-  //modal
+//modal
 let modalBtn = document.getElementById("modal-btn")
 let modal = document.querySelector(".modal")
 let closeBtn = document.querySelector(".close-btn")
