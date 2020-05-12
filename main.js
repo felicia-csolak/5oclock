@@ -7,26 +7,36 @@ const drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
     console.log(response)
     const drinkList = Object(response.data)
     console.log(drinkList)
+    displayDrink(drinkList)
   }
   catch (error) {
   console.log(`${error}`)
   }
 }
-
 getDrink()
+
+// Drink info rendering
+function displayDrink(drink) {
+  // console.log(drink.drinks[0].strDrink)
+  let display = document.querySelector('.drink-display')
+  let drinkName = document.createElement('h2')
+  drinkName.innerHTML = drink.drinks[0].strDrink
+  display.appendChild(drinkName)
+}
+
 
 
 //Alcohol type API
-async function drinkInfo(alcohol) {
-  const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${alcohol}`
-try {
-  const response = await axios.get(url)
-  // const alcoholSelected = response
-  console.log(response)
-} catch (error) {
-  console.log(`${error}`)
-  }
-}
+// async function drinkInfo(alcohol) {
+//   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${alcohol}`
+// try {
+//   const response = await axios.get(url)
+//   // const alcoholSelected = response
+//   console.log(response)
+// } catch (error) {
+//   console.log(`${error}`)
+//   }
+// }
 
 // drinkInfo(Gin)
 //random button
