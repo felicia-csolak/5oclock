@@ -23,9 +23,14 @@ header, body, footer {
   display: inline-flex;
   flex-direction: column;
   margin: 10px 15px 10px auto;
+  overflow: auto;
 }
 
-.ingDiv li {
+.ingDiv div {
+  display: block;
+}
+
+.ingDiv ul, li {
   list-style: none;
 }
 
