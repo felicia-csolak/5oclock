@@ -6,7 +6,7 @@ https://git.generalassemb.ly/funkyfelz/5oclock
 
 ## Project Description
 
-5o'clock is a mobile app designed to kick off your happiest hour! Get a random cocktail recipe with the click of a button. Filter through alcohol types and ingredients you have on hand to get the party started.
+5o'clock is a mobile app designed to kick off your happiest hour! Get a random cocktail recipe with the click of a button. Filter through alcohol types you have on hand to get the party started.
 
 ## API and Data Sample
 
