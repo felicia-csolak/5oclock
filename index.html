@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="main.js"></script>
-    <link rel ="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&family=VT323&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>5o'clock!</title>
 </head>
+
 <body>
     <header>
         <div class="title">5 o'clock!</div>
@@ -16,32 +18,36 @@
     </header>
     <main>
         <div class="main-content">
-        <div class="random-button">
-            <img onclick ="getDrink()" src="cocktail.png" alt="cocktail image" id="modal-btn">
-            <div class="modal">
-                <div class="modal-content">
-                  <span class="close-btn">&times;</span>
-                  <section class="drink-display">
-                  </section>
+            <div class="random-button">
+                <img onclick="getDrink()" src="cocktail.png" alt="cocktail image" id="modal-btn">
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn">&times;</span>
+                        <section class="drink-display">
+                        </section>
+                    </div>
                 </div>
-              </div>
-        </div>
-        <div class = "dropdown">
-               <button onclick="button()" class="dropbtn">Select Your Spirit</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Vodka</a>
-                    <a href="#">Gin</a>
-                    <a href="#">Whiskey</a>
-                    <a href="#">Rum</a>
-                    <a href="#">Tequila</a>
-                    <a href="#">Scotch</a>
-                    <a href="#">Bourbon</a>
             </div>
-        </div>
+            <div class="dropdown">
+                <form>
+                    <button class="dropbtn">Select Your Spirit</button>
+                    <select id="myDropdown" class="dropdown-content">
+                        <option value="Vodka">Vodka</option>
+                        <option value="Gin">Gin</option>
+                        <option value="Whiskey">Whiskey</option>
+                        <option value="Rum">Rum</option>
+                        <option value="Tequila">Tequila</option>
+                        <option value="Scotch">Scotch</option>
+                        <option value="Bourbon">Bourbon</option>
+                    </select>
+                </form>
+            </div>
+            <div class="append-list"></div>
         </div>
     </main>
     <footer>
         U.S. users must be age 21+ years old.
     </footer>
 </body>
+
 </html>

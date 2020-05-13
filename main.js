@@ -47,41 +47,69 @@ function displayDrink(drink) {
 }
 
 
+function optionValue(e) {
+  e.preventDefault()
+  let select = document.querySelector('.dropdown-content')
+  let getValue = select.value
+  console.log(getValue)
+  getAlcohol(getValue)
+}
 
-//Alcohol type API
-// async function drinkInfo(alcohol) {
-//   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${alcohol}`
-// try {
-//   const response = await axios.get(url)
-//   // const alcoholSelected = response
-//   console.log(response)
-// } catch (error) {
-//   console.log(`${error}`)
-//   }
-// }
-
-// drinkInfo(Gin)
+const form = document.querySelector('form')
+form.addEventListener('submit', optionValue)
 
 
-
-
-
-// drop down menu
-function button() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      let dropdowns = document.getElementsByClassName("dropdown-content");
-      for (let i = 0; i < dropdowns.length; i++) {
-        let openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
+async function getAlcohol(alcohol) {
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${alcohol}`
+  try {
+    const response = await axios.get(url)
+    for(let i=0; i <= 5; i++) {
+    const alcoholSelected = response.data.drinks[i].strDrink
+    const alcoholID = response.data.drinks[i].idDrink
+    console.log(alcoholSelected)
+    console.log(alcoholID)
+    drinkList(alcoholSelected)
+    showAlcoholData(alcoholID)
     }
   }
+    catch (error) {
+    console.log(`${error}`)
+  }
+}
+
+
+// create drink list, append to DOM
+function drinkList(alcohol) {
+  let displayedDrink = document.createElement('p')
+  displayedDrink.innerHTML = alcohol
+  let display = document.querySelector('.append-list')
+  console.log(displayedDrink)
+  display.appendChild(displayedDrink)
+}
+
+// get alcohol details
+async function alcoholDetails(number) {
+  const url = (`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${number}`);
+  try {
+    const response = await axios.get(url)
+    for(let i=0; i <= 5; i++) {
+    const alcoholInfo = response.data.drinks[i].strInstructions
+    console.log(alcoholInfo)
+    }
+  } catch (error) {
+    console.log(`${error}`)
+  }
+}
+
+alcoholDetails(15675)
+
+function showAlcoholData(number) {
+  let alcoholInfo = document.createElement('p')
+  alcoholInfo.innerHTML = number
+  let display = document.querySelector('append-list')
+  console.log(alcoholInfo)
+  display.appendChild(alcoholInfo)
+}
 
 //modal
 let modalBtn = document.getElementById("modal-btn")
