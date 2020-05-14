@@ -1,7 +1,7 @@
 //Random Drink API
 const getDrink = async () => {
-const drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-// const
+  const drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+  // const
   try {
     const response = await axios.get(drinkURL)
     // console.log(response)
@@ -10,7 +10,7 @@ const drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
     displayDrink(drinkList)
   }
   catch (error) {
-  console.log(`${error}`)
+    console.log(`${error}`)
   }
 }
 getDrink()
@@ -29,16 +29,16 @@ function displayDrink(drink) {
   display.appendChild(drinkName)
 
   for (let i = 1; i <= 15; i++) {
-  const ingredients = document.createElement('li')
-  ingredients.innerHTML = drink.drinks[0][`strIngredient${i}`];
+    const ingredients = document.createElement('li')
+    ingredients.innerHTML = drink.drinks[0][`strIngredient${i}`];
 
-  const measurements = document.createElement('li')
-  measurements.innerHTML = drink.drinks[0][`strMeasure${i}`];
+    const measurements = document.createElement('li')
+    measurements.innerHTML = drink.drinks[0][`strMeasure${i}`];
 
-  let ingMeasureDiv = document.createElement('div')
-  ingMeasureDiv.appendChild(ingredients)
-  ingMeasureDiv.appendChild(measurements)
-  display.appendChild(ingMeasureDiv)
+    let ingMeasureDiv = document.createElement('div')
+    ingMeasureDiv.appendChild(ingredients)
+    ingMeasureDiv.appendChild(measurements)
+    display.appendChild(ingMeasureDiv)
   }
 
   let directions = document.createElement('p')
@@ -63,16 +63,16 @@ async function getAlcohol(alcohol) {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${alcohol}`
   try {
     const response = await axios.get(url)
-    for(let i=0; i <= 5; i++) {
-    const alcoholSelected = response.data.drinks[i].strDrink
-    const alcoholID = response.data.drinks[i].idDrink
-    console.log(alcoholSelected)
-    console.log(alcoholID)
-    drinkList(alcoholSelected)
-    showAlcoholData(alcoholID)
+    for (let i = 0; i <= 4; i++) {
+      const alcoholSelected = response.data.drinks[i].strDrink
+      const alcoholID = response.data.drinks[i].idDrink
+      console.log(alcoholSelected)
+      console.log(alcoholID)
+      drinkList(alcoholSelected)
+      alcoholDetails(alcoholID)
     }
   }
-    catch (error) {
+  catch (error) {
     console.log(`${error}`)
   }
 }
@@ -80,7 +80,7 @@ async function getAlcohol(alcohol) {
 
 // create drink list, append to DOM
 function drinkList(alcohol) {
-  let displayedDrink = document.createElement('p')
+  let displayedDrink = document.createElement('h2')
   displayedDrink.innerHTML = alcohol
   let display = document.querySelector('.append-list')
   console.log(displayedDrink)
@@ -92,38 +92,55 @@ async function alcoholDetails(number) {
   const url = (`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${number}`);
   try {
     const response = await axios.get(url)
-    for(let i=0; i <= 5; i++) {
-    const alcoholInfo = response.data.drinks[i].strInstructions
-    console.log(alcoholInfo)
+    for (let i = 0; i <= 4; i++) {
+      let alcoholInfoArray = []
+      const alcoholInfo = response.data.drinks[i].strInstructions
+      if (alcoholInfo === undefined) {
+        continue;
+      } else {
+        alcoholInfoArray.push(alcoholInfo);
+        alcoholInfoArray.forEach(showAlcoholData)
+        function showAlcoholData(number) {
+          let alcoholInfo = document.createElement('p')
+          alcoholInfo.innerText = number
+          let display = document.querySelector('.append-directions')
+          console.log(alcoholInfo)
+          display.appendChild(alcoholInfo)
+        }
+      }
     }
   } catch (error) {
     console.log(`${error}`)
   }
 }
 
-alcoholDetails(15675)
 
-function showAlcoholData(number) {
-  let alcoholInfo = document.createElement('p')
-  alcoholInfo.innerHTML = number
-  let display = document.querySelector('append-list')
-  console.log(alcoholInfo)
-  display.appendChild(alcoholInfo)
-}
 
 //modal
 let modalBtn = document.getElementById("modal-btn")
 let modal = document.querySelector(".modal")
 let closeBtn = document.querySelector(".close-btn")
-modalBtn.onclick = function(){
+modalBtn.onclick = function () {
   modal.style.display = "block"
 }
-closeBtn.onclick = function(){
+closeBtn.onclick = function () {
   modal.style.display = "none"
 }
-window.onclick = function(e){
-  if(e.target == modal){
+window.onclick = function (e) {
+  if (e.target == modal) {
     modal.style.display = "none"
   }
 }
 
+//Drop down menu
+let spiritBtn = document.querySelector('#dropbtn')
+let dropDownMenu = document.getElementById('myDropdown')
+let dropDownSection = document.querySelector('.dropdown')
+spiritBtn.onmouseover = function () {
+  dropDownMenu.classList.toggle("show")
+}
+window.onclick = function (e) {
+  if (e.target === dropDownSection) {
+    dropDownMenu.classList.remove("show")
+  }
+}
