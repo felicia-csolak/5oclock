@@ -1,12 +1,9 @@
 //Random Drink API
 const getDrink = async () => {
   const drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-  // const
   try {
     const response = await axios.get(drinkURL)
-    // console.log(response)
     const drinkList = Object(response.data)
-    // console.log(drinkList)
     displayDrink(drinkList)
   }
   catch (error) {
@@ -17,7 +14,6 @@ getDrink()
 
 // Drink info rendering
 function displayDrink(drink) {
-  // console.log(drink.drinks[0].strDrink)
   let display = document.querySelector('.drink-display')
 
   let photo = document.createElement('img');
@@ -31,6 +27,10 @@ function displayDrink(drink) {
   for (let i = 1; i <= 15; i++) {
     const ingredients = document.createElement('li')
     ingredients.innerHTML = drink.drinks[0][`strIngredient${i}`];
+
+    if(drink.drinks[0][`strIngredient${i}`] == null){
+      break;
+    }
 
     const measurements = document.createElement('li')
     measurements.innerHTML = drink.drinks[0][`strMeasure${i}`];
@@ -47,27 +47,32 @@ function displayDrink(drink) {
 }
 
 
+// grabbing drop down menu value 
 function optionValue(e) {
-  e.preventDefault()
   let select = document.querySelector('.dropdown-content')
   let getValue = select.value
   console.log(getValue)
   getAlcohol(getValue)
 }
 
+
+// event listner for drop down menu
 const form = document.querySelector('form')
-form.addEventListener('submit', optionValue)
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  removeDrinks()
+  optionValue()
+})
 
 
+// API call that retrieves alcohol name and alcohol ID
 async function getAlcohol(alcohol) {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${alcohol}`
   try {
     const response = await axios.get(url)
-    for (let i = 0; i <= 4; i++) {
+    for (let i = 0; i <= 2; i++) {
       const alcoholSelected = response.data.drinks[i].strDrink
       const alcoholID = response.data.drinks[i].idDrink
-      console.log(alcoholSelected)
-      console.log(alcoholID)
       drinkList(alcoholSelected)
       alcoholDetails(alcoholID)
     }
@@ -78,7 +83,7 @@ async function getAlcohol(alcohol) {
 }
 
 
-// create drink list, append to DOM
+// create alcohol name list, append to DOM
 function drinkList(alcohol) {
   let displayedDrink = document.createElement('h2')
   displayedDrink.innerHTML = alcohol
@@ -87,36 +92,55 @@ function drinkList(alcohol) {
   display.appendChild(displayedDrink)
 }
 
-// get alcohol details
+// API call that uses alcohol ID to retrieve directions
 async function alcoholDetails(number) {
   const url = (`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${number}`);
   try {
     const response = await axios.get(url)
-    for (let i = 0; i <= 4; i++) {
+    for (let i = 0; i <= 2; i++) {
       let alcoholInfoArray = []
       const alcoholInfo = response.data.drinks[i].strInstructions
-      if (alcoholInfo === undefined) {
-        continue;
-      } else {
         alcoholInfoArray.push(alcoholInfo);
         alcoholInfoArray.forEach(showAlcoholData)
-        function showAlcoholData(number) {
-          let alcoholInfo = document.createElement('p')
-          alcoholInfo.innerText = number
-          let display = document.querySelector('.append-directions')
-          console.log(alcoholInfo)
-          display.appendChild(alcoholInfo)
-        }
-      }
     }
   } catch (error) {
     console.log(`${error}`)
   }
 }
 
+// append alcohol directions to DOM
+function showAlcoholData(number) {
+  let alcoholInfo = document.createElement('p')
+  alcoholInfo.innerText = number
+  let display = document.querySelector('.append-directions')
+  console.log(alcoholInfo)
+  display.appendChild(alcoholInfo)
+}
+
+// remove drink display from DOM
+function removeDrinks() {
+  const oldDrinkList = document.querySelector('.append-list')
+  const oldRecipe = document.querySelector('.append-directions')
+  while (oldDrinkList.lastChild){
+    oldDrinkList.removeChild(oldDrinkList.lastChild)
+  }
+  while (oldRecipe.lastChild){
+    oldRecipe.removeChild(oldRecipe.lastChild)
+  }
+}
 
 
-//modal
+
+
+
+
+
+
+
+
+
+
+//modal from w3schools.com
 let modalBtn = document.getElementById("modal-btn")
 let modal = document.querySelector(".modal")
 let closeBtn = document.querySelector(".close-btn")
@@ -125,22 +149,10 @@ modalBtn.onclick = function () {
 }
 closeBtn.onclick = function () {
   modal.style.display = "none"
+  document.location.reload();
 }
 window.onclick = function (e) {
   if (e.target == modal) {
     modal.style.display = "none"
-  }
-}
-
-//Drop down menu
-let spiritBtn = document.querySelector('#dropbtn')
-let dropDownMenu = document.getElementById('myDropdown')
-let dropDownSection = document.querySelector('.dropdown')
-spiritBtn.onmouseover = function () {
-  dropDownMenu.classList.toggle("show")
-}
-window.onclick = function (e) {
-  if (e.target === dropDownSection) {
-    dropDownMenu.classList.remove("show")
   }
 }
