@@ -51,7 +51,6 @@ function displayDrink(drink) {
 function optionValue(e) {
   let select = document.querySelector('.dropdown-content')
   let getValue = select.value
-  console.log(getValue)
   getAlcohol(getValue)
 }
 
@@ -88,7 +87,6 @@ function drinkList(alcohol) {
   let displayedDrink = document.createElement('h2')
   displayedDrink.innerHTML = alcohol
   let display = document.querySelector('.append-list')
-  console.log(displayedDrink)
   display.appendChild(displayedDrink)
 }
 
@@ -113,7 +111,6 @@ function showAlcoholData(number) {
   let alcoholInfo = document.createElement('p')
   alcoholInfo.innerText = number
   let display = document.querySelector('.append-directions')
-  console.log(alcoholInfo)
   display.appendChild(alcoholInfo)
 }
 
@@ -128,17 +125,6 @@ function removeDrinks() {
     oldRecipe.removeChild(oldRecipe.lastChild)
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 //modal from w3schools.com
 let modalBtn = document.querySelector(".hover-text")
