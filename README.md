@@ -6,7 +6,7 @@ https://git.generalassemb.ly/funkyfelz/5oclock
 
 ## Project Description
 
-5o'clock is a mobile app designed to kick off your happiest hour! Get a random cocktail recipe with the click of a button. Filter through alcohol types you have on hand to get the party started.
+5o'clock is an app designed to kick off your happiest hour! Get a random cocktail recipe with the click of a button. Filter through alcohol types you have on hand to get the party started.
 
 ## API and Data Sample
 
@@ -62,14 +62,15 @@ https://wireframe.cc/pro/pp/c8c3fdea5341298
 #### MVP
 
 - Allow user to pick randomized cocktail.
-- Filter cocktail list by alcohol type.
+- Select cocktail list by alcohol type.
 - Display cocktail image and recipe.
 - Reset search to look up more recipes.
 
 
 #### PostMVP
 
-- Filter by common ingredients. 
+- Filter by common ingredients.
+- Optimize layout for viewing on different devices.
 - Search cocktail by name.
 - Filter by taste profile.
 - Share recipes on social media.
@@ -79,10 +80,10 @@ https://wireframe.cc/pro/pp/c8c3fdea5341298
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Monday, 5/11| Project approval. Pseudocode, core HTML and CSS. | Incomplete
-|Tuesday, 5/12| API code, retrieving and filtering of information, random button functionality. | Incomplete
-|Wednesday, 5/13| Dropdown menu and checkbox functionality. Integrating dynamic drink info display. Reset search functionality. | Incomplete
-|Thursday, 5/14| Finalize CSS details and styling | Incomplete
+|Monday, 5/11| Project approval. Pseudocode, core HTML and CSS. | Complete
+|Tuesday, 5/12| API code, retrieving and filtering of information, random button functionality. | Complete
+|Wednesday, 5/13| Dropdown menu and checkbox functionality. Integrating dynamic drink info display. Reset search functionality. | Complete
+|Thursday, 5/14| Finalize CSS details and styling | Complete
 |Friday, 5/15| Present | Incomplete
 
 
@@ -94,12 +95,12 @@ https://wireframe.cc/pro/pp/c8c3fdea5341298
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| HTML Structure | M | 1hr |  |  |
-| Basic CSS Styles | M | 2hrs |  |  |
-| Random Button | H | 2hrs |  |  |
-| Dropdown alcohol type filter | H | 5hrs |  |  |
-| Checkbox common ingredients filter | H | 5hrs |  |  |
-| API Display cocktail information | H | 8hrs |  |  |
-| Reset search function | H | 5hrs |  |  |
-| Additional CSS & styling effects | L | 5hrs |  |  |
-| Total |   | 33hrs |  |   |
+| HTML Structure | M | 1hr | 1hr | 1hr |
+| Basic CSS Styles | M | 2hrs | 3hrs | 3hrs |
+| Random Button | H | 2hrs | 2hrs | 2hrs |
+| Dropdown alcohol type filter | H | 7hrs | 7hrs | 7hrs |
+| Modal random cocktail | H | 3hrs | 2hrs | 2hrs
+| API Display cocktail information | H | 8hrs | 10hrs | 10hrs |
+| Reset search function | H | 5hrs | 3hrs | 3hrs |
+| Additional CSS & styling effects | L | 5hrs | 6hrs | 6hrs |
+| Total |   | 33hrs |  | 34hrs |
