@@ -141,7 +141,7 @@ function removeDrinks() {
 
 
 //modal from w3schools.com
-let modalBtn = document.getElementById("modal-btn")
+let modalBtn = document.querySelector(".hover-text")
 let modal = document.querySelector(".modal")
 let closeBtn = document.querySelector(".close-btn")
 modalBtn.onclick = function () {

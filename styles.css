@@ -20,9 +20,43 @@ main {
     margin-bottom: 10px;
 }
 
+.text-overlay {
+background-color: black;
+position: absolute;
+top: 0;
+right: 0;
+left: 0;
+bottom: 50%;
+height: 100%;
+width: 100%;
+opacity: 0;
+transition: .6s ease;
+}
+
+.random-button:hover .text-overlay {
+  opacity: .75;
+}
+
+.hover-text {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'VT323', monospace;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .drink-display img {
   width: 275px;
   height: auto;
+  display: block;
 }
 
 .drink-display div {
@@ -81,6 +115,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
   z-index: 0;
+  cursor: pointer;
 } 
 
 .dropdown {
@@ -203,7 +238,7 @@ form, select, .dropdown-content, #myDropdown {
   color: lightgray; 
   font-size: 24px;  
   font-weight: bold;
-  cursor: default;
+  cursor: pointer;
 }
 
 .close-btn:hover {
@@ -220,12 +255,19 @@ form, select, .dropdown-content, #myDropdown {
 }
 
 footer {
-  font-size: x-small;
+  font-size: small;
   font-family: 'VT323', monospace;
   color: white;
   margin-top: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
+a {
+  color:lightblue;
+  text-decoration: none;
+}
 
-
-/* }
+a:hover {
+  color: white;
+}
